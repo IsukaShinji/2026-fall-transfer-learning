@@ -1,0 +1,31 @@
+<Slide style={{width:1280,height:720,background:'#FFFFFF',flexDirection:'column',position:'relative'}}>
+  <Box style={{width:1280,height:64,background:'#1E4FA8',flexDirection:'row',alignItems:'center',justifyContent:'space-between',paddingLeft:28,paddingRight:28}}>
+    <Text style={{fontFamily:'Microsoft YaHei',color:'#FFFFFF',fontSize:26,fontWeight:'bold'}}>主结果 Ⅰ：特征对齐的实况</Text>
+    <Text style={{fontFamily:'Microsoft YaHei',color:'#FFFFFF',fontSize:14,opacity:0.85,marginRight:24}}>结果</Text>
+  </Box>
+  <Box style={{flexDirection:'row',alignItems:'center',justifyContent:'center',gap:24,paddingTop:40,paddingBottom:8}}>
+    <Box style={{flexDirection:'column',gap:6,alignItems:'center'}}>
+      <Image src="assets/dann_early.png" style={{width:300,height:265}}/>
+      <Text style={{fontFamily:'Microsoft YaHei',color:'#4A5568',fontSize:16}}>epoch 2：两域完全分离</Text>
+    </Box>
+    <Box style={{flexDirection:'column',alignItems:'center',gap:6,width:150}}>
+      <Text style={{fontFamily:'Microsoft YaHei',color:'#1E4FA8',fontSize:34,fontWeight:'bold'}}>→</Text>
+      <Text style={{fontFamily:'Microsoft YaHei',color:'#1E4FA8',fontSize:16,fontWeight:'bold',textAlign:'center'}}>对抗对齐 · 50 epoch</Text>
+    </Box>
+    <Box style={{flexDirection:'column',gap:6,alignItems:'center'}}>
+      <Image src="assets/dann_late.png" style={{width:300,height:265}}/>
+      <Text style={{fontFamily:'Microsoft YaHei',color:'#1E4FA8',fontSize:16}}>epoch 50：两域混合</Text>
+    </Box>
+  </Box>
+  <Box style={{flexDirection:'column',gap:4,paddingLeft:60,paddingRight:60,paddingBottom:8}}>
+    <Text style={{fontFamily:'Microsoft YaHei',color:'#4A5568',fontSize:16,lineHeight:1.4,width:1160}}>图例：蓝 = 源域，红 = 目标域。特征来自测试集随机采样（500+500），取特征提取器 G_f 输出的 768 维特征。</Text>
+    <Text style={{fontFamily:'Microsoft YaHei',color:'#8B97A8',fontSize:14,lineHeight:1.4,width:1160}}>全局降维一次完成、按帧切分坐标（避免逐帧独立降维导致的坐标漂移），帧间坐标系一致。</Text>
+  </Box>
+  <Box style={{position:'absolute',bottom:24,left:60,right:60,background:'#E8EFF8',paddingTop:12,paddingBottom:12,paddingLeft:20,paddingRight:20,borderRadius:4}}>
+    <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:20}}>两团点从完全分离到充分混合——对齐真的发生在特征层面</Text>
+  </Box>
+  <Box style={{position:'absolute',bottom:0,left:60,right:60,flexDirection:'row',justifyContent:'space-between'}}>
+    <Text style={{fontFamily:'Microsoft YaHei',color:'#8B97A8',fontSize:14}}>DANN 复现 · 迁移学习课程大作业</Text>
+    <Text style={{fontFamily:'Times New Roman',color:'#8B97A8',fontSize:14}}>07 / 12</Text>
+  </Box>
+</Slide>

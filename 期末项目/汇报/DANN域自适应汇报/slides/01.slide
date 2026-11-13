@@ -1,0 +1,31 @@
+<Slide style={{width:1280,height:720,background:'#FFFFFF',flexDirection:'column',position:'relative'}}>
+  <Box style={{position:'absolute',top:36,right:48,width:120,height:120,borderRadius:60,background:'#E8EFF8'}}/>
+  <Box style={{position:'absolute',top:96,right:20,width:64,height:64,borderRadius:32,background:'#DCE7F4'}}/>
+  <Box style={{position:'absolute',bottom:70,left:0,width:260,height:6,background:'#1E4FA8'}}/>
+  <Box style={{flexDirection:'row',paddingLeft:80,paddingTop:120,gap:46,flex:1}}>
+    <Box style={{width:600,flexDirection:'column',gap:16,paddingTop:20}}>
+      <Box style={{width:64,height:8,background:'#1E4FA8'}}/>
+      <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:50,fontWeight:'bold',lineHeight:1.3}}>无监督域自适应</Text>
+      <Text style={{fontFamily:'Microsoft YaHei',color:'#1E4FA8',fontSize:50,fontWeight:'bold',lineHeight:1.3}}>DANN 复现与消融</Text>
+      <Text style={{fontFamily:'Microsoft YaHei',color:'#4A5568',fontSize:19,marginTop:8}}>迁移学习课程大作业 · MNIST → MNIST-M · 梯度反转层</Text>
+      <Box style={{flexDirection:'row',gap:12,marginTop:16}}>
+        <Box style={{background:'#E8EFF8',borderRadius:4,paddingTop:6,paddingBottom:6,paddingLeft:14,paddingRight:14}}><Text style={{fontFamily:'Microsoft YaHei',color:'#1E4FA8',fontSize:15}}>域对抗训练</Text></Box>
+        <Box style={{background:'#E8EFF8',borderRadius:4,paddingTop:6,paddingBottom:6,paddingLeft:14,paddingRight:14}}><Text style={{fontFamily:'Microsoft YaHei',color:'#1E4FA8',fontSize:15}}>t-SNE 演化</Text></Box>
+        <Box style={{background:'#E8EFF8',borderRadius:4,paddingTop:6,paddingBottom:6,paddingLeft:14,paddingRight:14}}><Text style={{fontFamily:'Microsoft YaHei',color:'#1E4FA8',fontSize:15}}>λ 调度消融</Text></Box>
+      </Box>
+      <Box style={{flexDirection:'row',alignItems:'flex-end',gap:16,marginTop:26}}>
+        <Text style={{fontFamily:'Times New Roman',color:'#9AA0A6',fontSize:46,fontWeight:'bold'}}>35.5%</Text>
+        <Text style={{fontFamily:'Times New Roman',color:'#1E4FA8',fontSize:26,paddingBottom:8}}>→ 93.0%</Text>
+        <Text style={{fontFamily:'Microsoft YaHei',color:'#4A5568',fontSize:15,paddingBottom:10}}>目标域准确率 · 无任何目标域标注</Text>
+      </Box>
+    </Box>
+    <Box style={{flex:1,alignItems:'center',justifyContent:'center',gap:10}}>
+      <Image src="assets/dann_late.png" style={{width:330,height:292}}/>
+      <Text style={{fontFamily:'Microsoft YaHei',color:'#1E4FA8',fontSize:15}}>50 epoch 后：源域与目标域特征混合（t-SNE）</Text>
+    </Box>
+  </Box>
+  <Box style={{height:64,flexDirection:'row',alignItems:'center',justifyContent:'space-between',paddingLeft:80,paddingRight:80,background:'#F4F7FB'}}>
+    <Text style={{fontFamily:'Microsoft YaHei',color:'#4A5568',fontSize:15}}>汇报人：黄浩博</Text>
+    <Text style={{fontFamily:'Microsoft YaHei',color:'#8B97A8',fontSize:15}}>2026 年 12 月 9 日 · 课程大作业口头展示</Text>
+  </Box>
+</Slide>

@@ -1,0 +1,22 @@
+{
+  "background": "synthetic",
+  "device": "xpu",
+  "results": [
+    {
+      "mode": "dann",
+      "elapsed_sec": 810.6,
+      "interrupted": false,
+      "final": {
+        "epoch": 50,
+        "loss_y": 0.03786994829841491,
+        "loss_d": 0.6220967493227731,
+        "acc_source": 0.9827,
+        "acc_target": 0.833,
+        "acc_domain": 0.648,
+        "lambda_last": 0.7616031202349256,
+        "lr_last": 0.00165557616634787
+      },
+      "resumed": false
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+torch==2.9.0+xpu
+torchvision==0.24.0+xpu
+torchaudio==2.9.0+xpu
+numpy==2.4.6

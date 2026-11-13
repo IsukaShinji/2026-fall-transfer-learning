@@ -1,0 +1,37 @@
+<Slide style={{width:1280,height:720,background:'#FFFFFF',flexDirection:'column',position:'relative'}}>
+  <Box style={{width:1280,height:64,background:'#1E4FA8',flexDirection:'row',alignItems:'center',justifyContent:'space-between',paddingLeft:28,paddingRight:28}}>
+    <Text style={{fontFamily:'Microsoft YaHei',color:'#FFFFFF',fontSize:26,fontWeight:'bold'}}>结论与局限</Text>
+    <Text style={{fontFamily:'Microsoft YaHei',color:'#FFFFFF',fontSize:14,opacity:0.85,marginRight:24}}>结论</Text>
+  </Box>
+  <Box style={{flexDirection:'row',gap:30,paddingLeft:60,paddingRight:60,paddingTop:24,paddingBottom:12,flex:1}}>
+    <Box style={{flex:1,flexDirection:'column',gap:12}}>
+      <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:22,fontWeight:'bold'}}>结论</Text>
+      <Box style={{flexDirection:'column',gap:10}}>
+        <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:20,lineHeight:1.5}}>① 无监督域自适应有效：无任何目标域标注，目标域准确率从 35.46% 提升到 92.95%</Text>
+        <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:20,lineHeight:1.5}}>② 判断迁移生效需要两条证据：目标任务提升，且域判别器逼近随机——缺一不可</Text>
+        <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:20,lineHeight:1.5}}>③ 迁移有强度：λ 最终要够大，调度过慢（γ=2）会让对抗不足；负迁移在本设定下未复现</Text>
+      </Box>
+      <Box style={{height:1,background:'#D6DCE5',marginTop:6}}/>
+      <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:20,fontWeight:'bold'}}>回到课件的问题</Text>
+      <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:20,lineHeight:1.5,marginTop:4}}>课件 3.5 节问"哪种偏移该用哪种方法"——本实验给出一个实证回答：协变量偏移、源覆盖不足、特征可对齐时，DANN 有效，且对齐发生在特征层面而非数据层面</Text>
+    </Box>
+    <Box style={{flex:1,flexDirection:'column',gap:12}}>
+      <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:22,fontWeight:'bold'}}>局限（诚实报告）</Text>
+      <Box style={{flexDirection:'column',gap:10}}>
+        <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:20,lineHeight:1.5}}>· 背景为程序化纹理而非 BSDS500 真实照片：目标域背景更复杂，源域模型掉点更深（基线 35.5% vs 论文 52.3%），因此 DANN 的绝对提升点数更大（57.5 vs 24.4）——对齐的方向与论文一致，绝对数字不可直接比较</Text>
+        <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:20,lineHeight:1.5}}>· 单一随机种子、单一骨干架构：未报告均值±标准差与跨架构稳定性</Text>
+        <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:20,lineHeight:1.5}}>· 任务较简单（10 分类）：课文中"迁移强度失控导致负迁移"的现象未在本设定下复现</Text>
+      </Box>
+      <Box style={{height:1,background:'#D6DCE5',marginTop:6}}/>
+      <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:20,fontWeight:'bold'}}>后续方向</Text>
+      <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:20,lineHeight:1.5,marginTop:4}}>换用 BSDS500 真实背景复测；加入 CORAL/重要性加权与 DANN 的同表对比；多随机种子统计</Text>
+    </Box>
+  </Box>
+  <Box style={{position:'absolute',bottom:24,left:60,right:60,background:'#E8EFF8',paddingTop:12,paddingBottom:12,paddingLeft:20,paddingRight:20,borderRadius:4}}>
+    <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:20}}>一句话：无标注的目标域数据 + 特征层面的分布对齐 = 不加标注也能救回 57.5 个百分点</Text>
+  </Box>
+  <Box style={{position:'absolute',bottom:0,left:60,right:60,flexDirection:'row',justifyContent:'space-between'}}>
+    <Text style={{fontFamily:'Microsoft YaHei',color:'#8B97A8',fontSize:14}}>DANN 复现 · 迁移学习课程大作业</Text>
+    <Text style={{fontFamily:'Times New Roman',color:'#8B97A8',fontSize:14}}>11 / 12</Text>
+  </Box>
+</Slide>

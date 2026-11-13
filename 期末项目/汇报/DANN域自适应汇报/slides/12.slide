@@ -1,0 +1,14 @@
+<Slide style={{width:1280,height:720,background:'#FFFFFF',flexDirection:'column',justifyContent:'center',paddingLeft:96,paddingRight:96}}>
+  <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:40,fontWeight:'bold'}}>谢谢，请指正</Text>
+  <Box style={{width:64,height:5,background:'#1E4FA8',marginTop:24,marginBottom:36}}/>
+  <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:22,fontWeight:'bold'}}>参考文献</Text>
+  <Box style={{flexDirection:'column',gap:10,marginTop:16}}>
+    <Text style={{fontFamily:'Times New Roman',color:'#4A5568',fontSize:18,lineHeight:1.5}}>[1] Y. Ganin and V. Lempitsky. Unsupervised Domain Adaptation by Backpropagation. ICML 2015.</Text>
+    <Text style={{fontFamily:'Times New Roman',color:'#4A5568',fontSize:18,lineHeight:1.5}}>[2] S. J. Pan and Q. Yang. A Survey on Transfer Learning. IEEE TKDE, 22(10), 2010.</Text>
+    <Text style={{fontFamily:'Times New Roman',color:'#4A5568',fontSize:18,lineHeight:1.5}}>[3] M. Long et al. Transfer Learning: Theories, Algorithms, and Open Library. IJCAI 2021.</Text>
+  </Box>
+  <Box style={{height:1,background:'#D6DCE5',marginTop:32,marginBottom:20}}/>
+  <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:20,fontWeight:'bold'}}>复现</Text>
+  <Text style={{fontFamily:'Microsoft YaHei',color:'#4A5568',fontSize:18,lineHeight:1.5,marginTop:10}}>python src/dann_mnistm.py --mode dann --epochs 50　（Intel Arc XPU，约 25 分钟）</Text>
+  <Text style={{fontFamily:'Microsoft YaHei',color:'#4A5568',fontSize:18,lineHeight:1.5,marginTop:6}}>代码、逐 epoch 指标与全部可视化产物见项目 outputs 目录</Text>
+</Slide>

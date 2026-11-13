@@ -1,0 +1,70 @@
+<Slide style={{width:1280,height:720,background:'#FFFFFF',flexDirection:'column',position:'relative'}}>
+  <Box style={{width:1280,height:64,background:'#1E4FA8',flexDirection:'row',alignItems:'center',justifyContent:'space-between',paddingLeft:28,paddingRight:28}}>
+    <Text style={{fontFamily:'Microsoft YaHei',color:'#FFFFFF',fontSize:26,fontWeight:'bold'}}>方法三：DANN 与梯度反转层</Text>
+    <Text style={{fontFamily:'Microsoft YaHei',color:'#FFFFFF',fontSize:14,opacity:0.85,marginRight:24}}>方法三</Text>
+  </Box>
+  <Box style={{flexDirection:'column',gap:16,paddingLeft:60,paddingRight:60,paddingTop:22,paddingBottom:10,flex:1}}>
+    <Box style={{flexDirection:'row',alignItems:'center',gap:12}}>
+      <Box style={{flex:0.9,background:'#F4F7FB',borderWidth:1,borderColor:'#C9D4E3',borderRadius:6,paddingTop:18,paddingBottom:18,paddingLeft:12,paddingRight:12,alignItems:'center'}}>
+        <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:21,fontWeight:'bold'}}>输入 x</Text>
+        <Text style={{fontFamily:'Microsoft YaHei',color:'#4A5568',fontSize:15,marginTop:5}}>源域 + 目标域</Text>
+      </Box>
+      <Text style={{fontFamily:'Times New Roman',color:'#1E4FA8',fontSize:26,fontWeight:'bold'}}>→</Text>
+      <Box style={{flex:1.4,background:'#F4F7FB',borderWidth:1,borderColor:'#C9D4E3',borderRadius:6,paddingTop:18,paddingBottom:18,paddingLeft:12,paddingRight:12,alignItems:'center'}}>
+        <Text style={{fontFamily:'Microsoft YaHei',color:'#1E4FA8',fontSize:21,fontWeight:'bold'}}>特征提取器 G_f</Text>
+        <Text style={{fontFamily:'Microsoft YaHei',color:'#4A5568',fontSize:15,marginTop:5}}>两个 5×5 卷积：32→48 通道，768 维特征</Text>
+      </Box>
+      <Text style={{fontFamily:'Times New Roman',color:'#1E4FA8',fontSize:26,fontWeight:'bold'}}>→</Text>
+      <Box style={{flex:1.1,background:'#F4F7FB',borderWidth:1,borderColor:'#C9D4E3',borderRadius:6,paddingTop:18,paddingBottom:18,paddingLeft:12,paddingRight:12,alignItems:'center'}}>
+        <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:21,fontWeight:'bold'}}>标签预测器 G_y</Text>
+        <Text style={{fontFamily:'Microsoft YaHei',color:'#4A5568',fontSize:15,marginTop:5}}>FC 100→100→10，仅源域标签</Text>
+      </Box>
+    </Box>
+    <Box style={{flexDirection:'row',alignItems:'center',gap:12,paddingLeft:230}}>
+      <Box style={{flex:1.4,background:'#FDF0EF',borderWidth:2,borderColor:'#D9534F',borderRadius:6,paddingTop:18,paddingBottom:18,paddingLeft:12,paddingRight:12,alignItems:'center'}}>
+        <Text style={{fontFamily:'Microsoft YaHei',color:'#D9534F',fontSize:21,fontWeight:'bold'}}>梯度反转层 GRL　grad × (−λ)</Text>
+        <Text style={{fontFamily:'Microsoft YaHei',color:'#4A5568',fontSize:15,marginTop:5}}>前向恒等，反向取反：λ 随训练从 0 升到 1</Text>
+      </Box>
+      <Text style={{fontFamily:'Times New Roman',color:'#1E4FA8',fontSize:26,fontWeight:'bold'}}>→</Text>
+      <Box style={{flex:1.1,background:'#F4F7FB',borderWidth:1,borderColor:'#C9D4E3',borderRadius:6,paddingTop:18,paddingBottom:18,paddingLeft:12,paddingRight:12,alignItems:'center'}}>
+        <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:21,fontWeight:'bold'}}>域判别器 G_d</Text>
+        <Text style={{fontFamily:'Microsoft YaHei',color:'#4A5568',fontSize:15,marginTop:5}}>FC 100→2，源=0 / 目标=1，全 batch</Text>
+      </Box>
+    </Box>
+    <Box style={{flexDirection:'row',gap:20,marginTop:6}}>
+      <Box style={{flex:1,background:'#F4F7FB',borderWidth:1,borderColor:'#C9D4E3',borderRadius:6,paddingTop:14,paddingBottom:14,paddingLeft:14,paddingRight:14}}>
+        <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:19,fontWeight:'bold'}}>训练目标</Text>
+        <Text style={{fontFamily:'Microsoft YaHei',color:'#1E4FA8',fontSize:19,fontWeight:'bold',marginTop:8}}>总损失 = 源域标签交叉熵 + 域判别交叉熵</Text>
+        <Text style={{fontFamily:'Microsoft YaHei',color:'#D9534F',fontSize:15,lineHeight:1.45,marginTop:6}}>与普通多任务损失的本质区别：域分类损失算全部样本，但其梯度经 GRL 反转后才更新特征提取器；标签损失只算源域（原论文称 domain classifier）</Text>
+      </Box>
+      <Box style={{flex:1,background:'#F4F7FB',borderWidth:1,borderColor:'#C9D4E3',borderRadius:6,paddingTop:14,paddingBottom:14,paddingLeft:14,paddingRight:14}}>
+        <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:19,fontWeight:'bold'}}>λ 调度（论文 Eq.6）</Text>
+        <Text style={{fontFamily:'Times New Roman',color:'#1E4FA8',fontSize:19,fontWeight:'bold',marginTop:8}}>λ_p = 2 / (1 + e^(−10·p)) − 1</Text>
+        <Text style={{fontFamily:'Microsoft YaHei',color:'#4A5568',fontSize:15,lineHeight:1.5,marginTop:6}}>p 为训练进度 0→1：前期 λ≈0，特征提取器先安心学任务；后期 λ→1，对抗全力。学习率 μ_p = μ_0/(1+10p)^0.75 同步衰减</Text>
+      </Box>
+    </Box>
+    <Text style={{fontFamily:'Microsoft YaHei',color:'#4A5568',fontSize:17,lineHeight:1.5}}>直觉：域判别器努力分辨两域，特征提取器被反向梯度推着去混淆两域——收敛点就是"判别器猜不出域"的鞍点</Text>
+    <Text style={{fontFamily:'Microsoft YaHei',color:'#1E4FA8',fontSize:16,lineHeight:1.5}}>【课程理论对应】（课件第 6 章）：目标域误差 ≤ 源误差 + H∆H 散度 + 标注函数差异；把域判别器压到 50%，就是在直接压低 H∆H 这一项</Text>
+    <Box style={{flexDirection:'row',gap:12,marginTop:2}}>
+      <Box style={{flex:1,background:'#F4F7FB',borderWidth:1,borderColor:'#C9D4E3',borderRadius:6,paddingTop:10,paddingBottom:10,paddingLeft:12,paddingRight:12,alignItems:'center'}}>
+        <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:16,fontWeight:'bold'}}>前期　λ ≈ 0</Text>
+        <Text style={{fontFamily:'Microsoft YaHei',color:'#4A5568',fontSize:14,marginTop:4}}>对抗几乎关闭，先学好分类任务</Text>
+      </Box>
+      <Box style={{flex:1,background:'#F4F7FB',borderWidth:1,borderColor:'#C9D4E3',borderRadius:6,paddingTop:10,paddingBottom:10,paddingLeft:12,paddingRight:12,alignItems:'center'}}>
+        <Text style={{fontFamily:'Microsoft YaHei',color:'#1E4FA8',fontSize:16,fontWeight:'bold'}}>中期　λ 爬升</Text>
+        <Text style={{fontFamily:'Microsoft YaHei',color:'#4A5568',fontSize:14,marginTop:4}}>两个目标拉锯，特征开始域无关</Text>
+      </Box>
+      <Box style={{flex:1,background:'#E8EFF8',borderWidth:1,borderColor:'#1E4FA8',borderRadius:6,paddingTop:10,paddingBottom:10,paddingLeft:12,paddingRight:12,alignItems:'center'}}>
+        <Text style={{fontFamily:'Microsoft YaHei',color:'#1E4FA8',fontSize:16,fontWeight:'bold'}}>后期　λ → 1</Text>
+        <Text style={{fontFamily:'Microsoft YaHei',color:'#4A5568',fontSize:14,marginTop:4}}>判别器逼近 50%，两域混合（下页 GIF）</Text>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{position:'absolute',bottom:24,left:60,right:60,background:'#E8EFF8',paddingTop:12,paddingBottom:12,paddingLeft:20,paddingRight:20,borderRadius:4}}>
+    <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:20}}>结论：对齐发生在特征层面，标签预测器与域判别器共享同一个特征提取器</Text>
+  </Box>
+  <Box style={{position:'absolute',bottom:0,left:60,right:60,flexDirection:'row',justifyContent:'space-between'}}>
+    <Text style={{fontFamily:'Microsoft YaHei',color:'#8B97A8',fontSize:14}}>DANN 复现 · 迁移学习课程大作业</Text>
+    <Text style={{fontFamily:'Times New Roman',color:'#8B97A8',fontSize:14}}>06 / 12</Text>
+  </Box>
+</Slide>

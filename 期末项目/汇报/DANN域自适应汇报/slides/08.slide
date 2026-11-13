@@ -1,0 +1,28 @@
+<Slide style={{width:1280,height:720,background:'#FFFFFF',flexDirection:'column',position:'relative'}}>
+  <Box style={{width:1280,height:64,background:'#1E4FA8',flexDirection:'row',alignItems:'center',justifyContent:'space-between',paddingLeft:28,paddingRight:28}}>
+    <Text style={{fontFamily:'Microsoft YaHei',color:'#FFFFFF',fontSize:26,fontWeight:'bold'}}>主结果 Ⅱ：数字上的增益</Text>
+    <Text style={{fontFamily:'Microsoft YaHei',color:'#FFFFFF',fontSize:14,opacity:0.85,marginRight:24}}>结果</Text>
+  </Box>
+  <Box style={{flexDirection:'row',gap:40,paddingLeft:60,paddingRight:60,paddingTop:30,paddingBottom:12,flex:1,alignItems:'flex-start'}}>
+    <Image src="assets/compare.png" style={{width:460,height:407}}/>
+    <Box style={{width:560,flexDirection:'column',gap:16,paddingTop:24}}>
+      <Box style={{flexDirection:'row',alignItems:'flex-end',gap:16}}>
+        <Text style={{fontFamily:'Times New Roman',color:'#1E4FA8',fontSize:64,fontWeight:'bold'}}>92.95%</Text>
+        <Text style={{fontFamily:'Microsoft YaHei',color:'#4A5568',fontSize:16,marginBottom:14}}>DANN 目标域准确率</Text>
+      </Box>
+      <Box style={{flexDirection:'row',alignItems:'flex-end',gap:16}}>
+        <Text style={{fontFamily:'Times New Roman',color:'#D9534F',fontSize:44,fontWeight:'bold'}}>+57.5</Text>
+        <Text style={{fontFamily:'Microsoft YaHei',color:'#4A5568',fontSize:16,marginBottom:10}}>相对 source-only 的提升（百分点）</Text>
+      </Box>
+      <Box style={{height:1,background:'#D6DCE5',marginTop:4}}/>
+      <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:18,lineHeight:1.5,width:540}}>源域 99.32% → 98.31%，几乎不掉：任务能力没有以牺牲源任务为代价</Text>
+    </Box>
+  </Box>
+  <Box style={{position:'absolute',bottom:24,left:60,right:60,background:'#E8EFF8',paddingTop:12,paddingBottom:12,paddingLeft:20,paddingRight:20,borderRadius:4}}>
+    <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:20}}>结论：无标注的目标域数据把基线拉高 57.5 个百分点——迁移确实发生了</Text>
+  </Box>
+  <Box style={{position:'absolute',bottom:0,left:60,right:60,flexDirection:'row',justifyContent:'space-between'}}>
+    <Text style={{fontFamily:'Microsoft YaHei',color:'#8B97A8',fontSize:14}}>DANN 复现 · 迁移学习课程大作业</Text>
+    <Text style={{fontFamily:'Times New Roman',color:'#8B97A8',fontSize:14}}>08 / 12</Text>
+  </Box>
+</Slide>

@@ -1,0 +1,38 @@
+{
+  "background": "synthetic",
+  "device": "xpu",
+  "results": [
+    {
+      "mode": "source",
+      "elapsed_sec": 1045.2,
+      "interrupted": false,
+      "final": {
+        "epoch": 50,
+        "loss_y": 0.00016032358528512286,
+        "loss_d": null,
+        "acc_source": 0.9932,
+        "acc_target": 0.3546,
+        "acc_domain": null,
+        "lambda_last": 0.0,
+        "lr_last": 0.00165557616634787
+      },
+      "resumed": false
+    },
+    {
+      "mode": "dann",
+      "elapsed_sec": null,
+      "interrupted": false,
+      "final": {
+        "epoch": 50,
+        "loss_y": 0.025624,
+        "loss_d": 0.667913,
+        "acc_source": 0.9831,
+        "acc_target": 0.9295,
+        "acc_domain": 0.614,
+        "lambda_last": 0.999909,
+        "lr_last": 0.001656
+      },
+      "resumed": false
+    }
+  ]
+}

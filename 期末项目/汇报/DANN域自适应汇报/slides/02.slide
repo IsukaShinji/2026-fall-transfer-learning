@@ -1,0 +1,41 @@
+<Slide style={{width:1280,height:720,background:'#FFFFFF',flexDirection:'column',position:'relative'}}>
+  <Box style={{width:1280,height:64,background:'#1E4FA8',flexDirection:'row',alignItems:'center',justifyContent:'space-between',paddingLeft:28,paddingRight:28}}>
+    <Text style={{fontFamily:'Microsoft YaHei',color:'#FFFFFF',fontSize:26,fontWeight:'bold'}}>同一个任务，两个分布</Text>
+    <Text style={{fontFamily:'Microsoft YaHei',color:'#FFFFFF',fontSize:14,opacity:0.85,marginRight:24}}>问题设定</Text>
+  </Box>
+  <Box style={{flexDirection:'row',gap:30,paddingLeft:60,paddingRight:60,paddingTop:24,paddingBottom:12,flex:1}}>
+    <Box style={{width:620,flexDirection:'column',gap:8}}>
+      <Image src="assets/sample_grid.png" style={{width:620,height:151}}/>
+      <Text style={{fontFamily:'Microsoft YaHei',color:'#4A5568',fontSize:16,lineHeight:1.4}}>上：源域 MNIST（黑底白字，6 万张带标签）；下：目标域 MNIST-M（本实验自建版本：程序化纹理背景，无标注）</Text>
+      <Box style={{flexDirection:'row',gap:14}}>
+        <Box style={{background:'#E8EFF8',borderRadius:6,paddingTop:10,paddingBottom:10,paddingLeft:20,paddingRight:20,alignItems:'flex-start'}}>
+          <Text style={{fontFamily:'Times New Roman',color:'#1E4FA8',fontSize:54,fontWeight:'bold'}}>99.3%</Text>
+          <Text style={{fontFamily:'Microsoft YaHei',color:'#4A5568',fontSize:15,marginTop:2}}>源域测试准确率</Text>
+        </Box>
+        <Box style={{background:'#FDF0EF',borderRadius:6,paddingTop:10,paddingBottom:10,paddingLeft:20,paddingRight:20,alignItems:'flex-start'}}>
+          <Text style={{fontFamily:'Times New Roman',color:'#D9534F',fontSize:54,fontWeight:'bold'}}>35.5%</Text>
+          <Text style={{fontFamily:'Microsoft YaHei',color:'#4A5568',fontSize:15,marginTop:2}}>目标域测试准确率（仅源域标签，50 epoch）</Text>
+        </Box>
+      </Box>
+    </Box>
+    <Box style={{flex:1,flexDirection:'column',gap:16,paddingTop:4}}>
+      <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:24,fontWeight:'bold'}}>迁移学习三要件</Text>
+      <Box style={{flexDirection:'column',gap:10}}>
+        <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:20,lineHeight:1.5}}>① 两域：源域与目标域分布不同</Text>
+        <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:20,lineHeight:1.5}}>② 方向：知识从源域流向目标域，评价只看目标域</Text>
+        <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:20,lineHeight:1.5,fontWeight:'bold'}}>③ 基线：有不迁移的对照实验</Text>
+      </Box>
+      <Box style={{height:1,background:'#D6DCE5',marginTop:8}}/>
+      <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:20,lineHeight:1.5}}>偏移类型：协变量偏移——p(x) 变，p(y|x) 不变</Text>
+      <Text style={{fontFamily:'Microsoft YaHei',color:'#4A5568',fontSize:18,lineHeight:1.5}}>本质上：协变量偏移使训练与测试数据的独立同分布（i.i.d.）假设失效——这正是课程引入迁移学习的根本原因</Text>
+      <Text style={{fontFamily:'Microsoft YaHei',color:'#4A5568',fontSize:18,lineHeight:1.5}}>目标域无标注，源域标签无法直接用于目标域；重训成本高、旧知识被浪费</Text>
+    </Box>
+  </Box>
+  <Box style={{position:'absolute',bottom:24,left:60,right:60,background:'#E8EFF8',paddingTop:12,paddingBottom:12,paddingLeft:20,paddingRight:20,borderRadius:4}}>
+    <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:20}}>结论：源域学到的判别规则在目标域失效——这就是域偏移，也是迁移学习的用武之地</Text>
+  </Box>
+  <Box style={{position:'absolute',bottom:0,left:60,right:60,flexDirection:'row',justifyContent:'space-between'}}>
+    <Text style={{fontFamily:'Microsoft YaHei',color:'#8B97A8',fontSize:14}}>DANN 复现 · 迁移学习课程大作业</Text>
+    <Text style={{fontFamily:'Times New Roman',color:'#8B97A8',fontSize:14}}>02 / 12</Text>
+  </Box>
+</Slide>

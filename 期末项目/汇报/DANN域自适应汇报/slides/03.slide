@@ -1,0 +1,39 @@
+<Slide style={{width:1280,height:720,background:'#FFFFFF',flexDirection:'column',position:'relative'}}>
+  <Box style={{width:1280,height:64,background:'#1E4FA8',flexDirection:'row',alignItems:'center',justifyContent:'space-between',paddingLeft:28,paddingRight:28}}>
+    <Text style={{fontFamily:'Microsoft YaHei',color:'#FFFFFF',fontSize:26,fontWeight:'bold'}}>问题形式化：领域、任务与符号</Text>
+    <Text style={{fontFamily:'Microsoft YaHei',color:'#FFFFFF',fontSize:14,opacity:0.85,marginRight:24}}>问题设定</Text>
+  </Box>
+  <Box style={{flexDirection:'row',gap:30,paddingLeft:60,paddingRight:60,paddingTop:24,paddingBottom:12,flex:1}}>
+    <Box style={{flex:1,flexDirection:'column',gap:14}}>
+      <Box style={{background:'#F7F9FC',borderWidth:1,borderColor:'#D6DCE5',borderRadius:4,paddingTop:16,paddingBottom:16,paddingLeft:16,paddingRight:16}}>
+        <Text style={{fontFamily:'Microsoft YaHei',color:'#1E4FA8',fontSize:19,fontWeight:'bold'}}>领域 Domain　D = {'{'}X, p(x){'}'}</Text>
+        <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:20,lineHeight:1.5,marginTop:8}}>特征空间 X 与输入的边缘分布 p(x)。MNIST 与 MNIST-M 共享 X（3×28×28 图像），但 p(x) 不同——背景从纯黑变成彩色纹理</Text>
+      </Box>
+      <Box style={{background:'#F7F9FC',borderWidth:1,borderColor:'#D6DCE5',borderRadius:4,paddingTop:16,paddingBottom:16,paddingLeft:16,paddingRight:16}}>
+        <Text style={{fontFamily:'Microsoft YaHei',color:'#1E4FA8',fontSize:19,fontWeight:'bold'}}>任务 Task　T = {'{'}Y, f(·){'}'}</Text>
+        <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:20,lineHeight:1.5,marginTop:8}}>标签空间 Y = {'{'}0…9{'}'} 与预测函数 f。两域任务相同，只有输入分布不同——因此属直推式迁移，即领域自适应</Text>
+      </Box>
+      <Box style={{flexDirection:'column',gap:8}}>
+        <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:22,fontWeight:'bold'}}>本实验的对照设计</Text>
+        <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:20,lineHeight:1.5}}>基线：仅用源域标签训练 50 epoch（不迁移）</Text>
+        <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:20,lineHeight:1.5}}>干预：同一骨干加域分类器与梯度反转层（DANN）</Text>
+        <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:20,lineHeight:1.5}}>评估：目标域测试集 10000 张，标签只用于评估</Text>
+      </Box>
+    </Box>
+    <Box style={{width:430,flexDirection:'column',gap:12}}>
+      <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:22,fontWeight:'bold'}}>关键假设（可被检验）</Text>
+      <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:20,lineHeight:1.5,marginTop:4}}>A1　p(x) 不同：背景结构改变，数字形状保留</Text>
+      <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:20,lineHeight:1.5}}>A2　存在单一假设在两域同时低误差（域不变特征存在）</Text>
+      <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:20,lineHeight:1.5,marginTop:8}}>若 A2 不成立，任何对齐方法都会失败——这正是后面用域判别器曲线去验证的命题</Text>
+      <Box style={{height:1,background:'#D6DCE5',marginTop:10}}/>
+      <Text style={{fontFamily:'Microsoft YaHei',color:'#4A5568',fontSize:18,lineHeight:1.5}}>符号约定：源域误差记为 ε_S，目标域误差记为 ε_T；理想联合假设 h* 的误差记为 ε_ideal</Text>
+    </Box>
+  </Box>
+  <Box style={{position:'absolute',bottom:24,left:60,right:60,background:'#E8EFF8',paddingTop:12,paddingBottom:12,paddingLeft:20,paddingRight:20,borderRadius:4}}>
+    <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:20}}>一句话：两个数据集图片分布不一样，但分类规则一样——问题就是"协变量偏移下的无监督域自适应"</Text>
+  </Box>
+  <Box style={{position:'absolute',bottom:0,left:60,right:60,flexDirection:'row',justifyContent:'space-between'}}>
+    <Text style={{fontFamily:'Microsoft YaHei',color:'#8B97A8',fontSize:14}}>DANN 复现 · 迁移学习课程大作业</Text>
+    <Text style={{fontFamily:'Times New Roman',color:'#8B97A8',fontSize:14}}>03 / 12</Text>
+  </Box>
+</Slide>

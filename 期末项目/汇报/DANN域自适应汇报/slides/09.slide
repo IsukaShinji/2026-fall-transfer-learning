@@ -1,0 +1,27 @@
+<Slide style={{width:1280,height:720,background:'#FFFFFF',flexDirection:'column',position:'relative'}}>
+  <Box style={{width:1280,height:64,background:'#1E4FA8',flexDirection:'row',alignItems:'center',justifyContent:'space-between',paddingLeft:28,paddingRight:28}}>
+    <Text style={{fontFamily:'Microsoft YaHei',color:'#FFFFFF',fontSize:26,fontWeight:'bold'}}>域混淆的证据：判别器逼近随机</Text>
+    <Text style={{fontFamily:'Microsoft YaHei',color:'#FFFFFF',fontSize:14,opacity:0.85,marginRight:24}}>结果</Text>
+  </Box>
+  <Box style={{flexDirection:'row',gap:30,paddingLeft:60,paddingRight:60,paddingTop:20,paddingBottom:12,flex:1,alignItems:'flex-start'}}>
+    <Box style={{width:640,flexDirection:'column',gap:8}}>
+      <Image src="assets/dann_curves.png" style={{width:640,height:356}}/>
+      <Text style={{fontFamily:'Microsoft YaHei',color:'#4A5568',fontSize:16}}>三条曲线：源域准确率、目标域准确率、域判别器准确率（虚线为 50% 随机线）</Text>
+    </Box>
+    <Box style={{flex:1,flexDirection:'column',gap:12,paddingTop:4}}>
+      <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:22,fontWeight:'bold'}}>只看准确率不够，要证明混淆发生了</Text>
+      <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:20,lineHeight:1.55,marginTop:4}}>域判别器在固定测试子集上从 99.4% 一路降到 61.4%，逼近随机的 50%——它已经分不出样本来自哪个域</Text>
+      <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:20,lineHeight:1.55}}>没有降到 50% 的原因：判别器自身也在被优化，源任务梯度持续把它拉向"可分"。按课件第 6 章的 H∆H 理论，也不需要降到随机——域间散度被显著压缩即可带来提升，60% 对应的散度已经足够小</Text>
+      <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:20,lineHeight:1.55}}>对照：source-only 基线没有这一条曲线——它的特征天然可分，这正是 35.5% 的成因</Text>
+      <Box style={{height:1,background:'#D6DCE5',marginTop:6}}/>
+      <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:18,lineHeight:1.5,fontWeight:'bold'}}>评估口径：域判别器准确率在固定的 500+500 测试子集上计算（与 t-SNE 采样同源），而非训练 batch——后者会因判别器拟合训练分布而虚高</Text>
+    </Box>
+  </Box>
+  <Box style={{position:'absolute',bottom:24,left:60,right:60,background:'#E8EFF8',paddingTop:12,paddingBottom:12,paddingLeft:20,paddingRight:20,borderRadius:4}}>
+    <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:20}}>结论：目标任务提升 + 域判别器逼近随机，两条证据合起来才构成"迁移生效"的完整论证</Text>
+  </Box>
+  <Box style={{position:'absolute',bottom:0,left:60,right:60,flexDirection:'row',justifyContent:'space-between'}}>
+    <Text style={{fontFamily:'Microsoft YaHei',color:'#8B97A8',fontSize:14}}>DANN 复现 · 迁移学习课程大作业</Text>
+    <Text style={{fontFamily:'Times New Roman',color:'#8B97A8',fontSize:14}}>09 / 12</Text>
+  </Box>
+</Slide>

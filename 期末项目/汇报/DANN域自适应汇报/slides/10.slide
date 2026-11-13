@@ -1,0 +1,28 @@
+<Slide style={{width:1280,height:720,background:'#FFFFFF',flexDirection:'column',position:'relative'}}>
+  <Box style={{width:1280,height:64,background:'#1E4FA8',flexDirection:'row',alignItems:'center',justifyContent:'space-between',paddingLeft:28,paddingRight:28}}>
+    <Text style={{fontFamily:'Microsoft YaHei',color:'#FFFFFF',fontSize:26,fontWeight:'bold'}}>消融：λ 调度的真实作用</Text>
+    <Text style={{fontFamily:'Microsoft YaHei',color:'#FFFFFF',fontSize:14,opacity:0.85,marginRight:24}}>消融</Text>
+  </Box>
+  <Box style={{flexDirection:'row',gap:30,paddingLeft:60,paddingRight:60,paddingTop:20,paddingBottom:12,flex:1,alignItems:'flex-start'}}>
+    <Box style={{width:640,flexDirection:'column',gap:8}}>
+      <Image src="assets/ablation_curves.png" style={{width:640,height:356}}/>
+      <Text style={{fontFamily:'Microsoft YaHei',color:'#4A5568',fontSize:16}}>四条目标域准确率曲线：source-only、γ=2、γ=10（论文调度）、λ 固定 1</Text>
+    </Box>
+    <Box style={{flex:1,flexDirection:'column',gap:10,paddingTop:4}}>
+      <Image src="assets/ablation_bars.png" style={{width:452,height:243}}/>
+      <Text style={{fontFamily:'Microsoft YaHei',color:'#4A5568',fontSize:14,marginTop:2}}>γ：λ 调度的陡度参数，控制对抗强度的上升速度（论文值 10）</Text>
+      <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:20,lineHeight:1.5,marginTop:4}}>与直觉相反：固定 λ=1 不但没有让源任务崩溃（源域稳定在 98.34%），反而是三组里最好的，域判别器也降到最低的 56.7%</Text>
+      <Box style={{background:'#F4F7FB',borderWidth:1,borderColor:'#C9D4E3',borderRadius:6,paddingTop:8,paddingBottom:8,paddingLeft:12,paddingRight:12,marginTop:2}}>
+        <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:16,fontWeight:'bold'}}>为什么与论文直觉相反？——三个候选解释</Text>
+        <Text style={{fontFamily:'Microsoft YaHei',color:'#4A5568',fontSize:14,lineHeight:1.45,marginTop:3}}>① 任务简单：MNIST 对 CNN 接近线性可分，标签损失的梯度足以稳住源任务，不怕对抗扰动；② 大 λ 在 SGD+动量下近似一个强正则项；③ 对照：论文的渐进调度是为 Office 等复杂任务设计的——任务越难，强对抗越易伤害源任务（即课件"负迁移"）；MNIST 判别特征鲁棒，固定强对抗无破坏性</Text>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{position:'absolute',bottom:24,left:60,right:60,background:'#E8EFF8',paddingTop:12,paddingBottom:12,paddingLeft:20,paddingRight:20,borderRadius:4}}>
+    <Text style={{fontFamily:'Microsoft YaHei',color:'#1A2230',fontSize:20}}>结论：在本实验设定下，λ 最终够不够大才是关键变量；调度过慢（对抗始终不足）才是真正受损的情形——论文的渐进调度是为更复杂任务设计的通用方案</Text>
+  </Box>
+  <Box style={{position:'absolute',bottom:0,left:60,right:60,flexDirection:'row',justifyContent:'space-between'}}>
+    <Text style={{fontFamily:'Microsoft YaHei',color:'#8B97A8',fontSize:14}}>DANN 复现 · 迁移学习课程大作业</Text>
+    <Text style={{fontFamily:'Times New Roman',color:'#8B97A8',fontSize:14}}>10 / 12</Text>
+  </Box>
+</Slide>
