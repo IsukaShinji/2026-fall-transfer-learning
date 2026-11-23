@@ -27,3 +27,6 @@ __pycache__/
 分工留档/
 **/分工留档/
 小组展示/
+outputs_seed*/
+outputs_coral/
+outputs_fixed_seed*/
