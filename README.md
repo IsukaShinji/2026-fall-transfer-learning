@@ -40,7 +40,7 @@
 ```
 ├── 课件/                  # 全部课程材料：课件 PDF/PPTX（不入库）+ 迁移学习笔记.md（入库）
 │   ├── DANN原论文_Ganin2015.pdf · 期末要求.txt
-├── 期末项目/              # 期末大作业
+├── 个人展示/              # 期末大作业
 │   ├── src/               # dann_mnistm.py（训练）、plot_ablation.py（消融图）、env_check.py（环境自检）
 │   ├── outputs/           # GIF 动图、曲线、CSV 指标、summary.json
 │   ├── 汇报/              # 汇报 PPT（12 页）+ 讲稿.md + 逐字稿.md
@@ -50,8 +50,8 @@
 ## 复现
 
 ```bash
-pip install -r 期末项目/requirements.txt -c 期末项目/constraints.txt
-python 期末项目/src/dann_mnistm.py --mode dann --epochs 50
+pip install -r 个人展示/requirements.txt -c 个人展示/constraints.txt
+python 个人展示/src/dann_mnistm.py --mode dann --epochs 50
 ```
 
 ## 关于课件

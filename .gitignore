@@ -1,23 +1,29 @@
-data/
-期末项目/data/
-期末项目/outputs/**/feat/
-期末项目/outputs/ckpt_*.pt
-期末项目/outputs/**/ckpt_*.pt
-期末项目/outputs/logs/
-期末项目/outputs/**/ablation_*.log
-期末项目/outputs/render*.log
-期末项目/outputs/smoke.log
-期末项目/outputs/bench*.log
+# 数据与大文件（不依赖目录名，改名后仍有效）
+**/data/
+**/outputs/feat/
+**/outputs/**/feat/
+**/outputs/ckpt_*.pt
+**/outputs/**/ckpt_*.pt
+**/outputs/logs/
+**/outputs/**/ablation_*.log
+**/outputs/render*.log
+**/outputs/smoke.log
+**/outputs/bench*.log
+**/frames/
+
+# 环境与缓存
 __pycache__/
 *.pyc
 .venv*/
-课件/*.pdf
-课件/*.pptx
-期末项目/.workbuddy/
-*.backup.pptx
 .workbuddy/
 **/.slidep/
-**/frames/
-期末项目/课件/
+
+# 课件原件（版权与体积）
+课件/*.pdf
+课件/*.pptx
+*.backup.pptx
+
+# 隐私与分组材料
 分工留档/
 **/分工留档/
+小组展示/
