@@ -44,7 +44,8 @@
 ├── 个人展示/              # 期末大作业
 │   ├── src/               # dann_mnistm.py（训练）、plot_ablation.py（消融图）、env_check.py（环境自检）
 │   ├── outputs/           # GIF 动图、曲线、CSV 指标、summary.json
-│   ├── 汇报/              # 汇报 PPT（12 页）+ 讲稿.md + 逐字稿.md
+│   ├── DANN域自适应汇报.pptx · 逐字稿.md   # 上场两件套（12 页）
+│   ├── 汇报/              # 编辑源：slides/ + assets/
 │   └── README.md          # 项目说明与复现命令
 ```
 
